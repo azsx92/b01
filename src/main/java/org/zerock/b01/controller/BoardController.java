@@ -17,6 +17,7 @@ import org.zerock.b01.service.BoardService;
 
 import javax.validation.Valid;
 
+
 @Controller
 @RequestMapping("/board")
 @Log4j2
