@@ -105,13 +105,14 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
 
         query.groupBy(board);
 
-        if( (types != null && types.length > 0) && keyword != null ){
+
+        if ((types != null && types.length > 0) && keyword != null) {
 
             BooleanBuilder booleanBuilder = new BooleanBuilder(); // (
 
-            for(String type: types){
+            for (String type : types) {
 
-                switch (type){
+                switch (type) {
                     case "t":
                         booleanBuilder.or(board.title.contains(keyword));
                         break;
@@ -137,7 +138,7 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
                 reply.count().as("replyCount")
         ));
 
-        this.getQuerydsl().applyPagination(pageable,dtoQuery);
+        this.getQuerydsl().applyPagination(pageable, dtoQuery);
 
         List<BoardListReplyCountDTO> dtoList = dtoQuery.fetch();
 

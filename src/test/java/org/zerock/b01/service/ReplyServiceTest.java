@@ -17,7 +17,11 @@ class ReplyServiceTest {
     @Test
     public void testRegister() {
 
-        ReplyDTO replyDTO = ReplyDTO.builder().replyText("ReplyDTO Text").replyer("replyer").bno(100L).build();
+        ReplyDTO replyDTO = ReplyDTO.builder()
+                .replyText("ReplyDTO Text")
+                .replyer("replyer")
+                .bno(100L)
+                .build();
 
         log.info(replyService.register(replyDTO));
     }

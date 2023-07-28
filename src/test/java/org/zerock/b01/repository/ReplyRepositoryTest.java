@@ -35,7 +35,7 @@ class ReplyRepositoryTest {
     }
 
     @Test
-    @Transactional
+//    @Transactional
     public void testBoardReplies() {
 
         long bno = 100L;
