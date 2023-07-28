@@ -127,4 +127,29 @@ class BoardRepositoryTest {
 
         result.getContent().forEach((board -> log.info(board)));
     }
+
+    @Test
+    public void testearchReplyCount() {
+        String[] typse = {"t","c","w"};
+
+        String keyword = "1";
+
+        Pageable pageable = PageRequest.of(0,10,Sort.by("bno").descending());
+
+        Page<Board> result = boardRepository.searchAll(typse, keyword, pageable);
+
+        //total.page
+        log.info(result.getTotalPages());
+
+        //pag size
+        log.info(result.getSize());
+
+        //pageNumber
+        log.info(result.getNumber());
+
+        //prev next
+        log.info(result.hasPrevious() + ": " + result.hasNext());
+
+        result.getContent().forEach((board -> log.info(board)));
+    }
 }
