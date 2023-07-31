@@ -36,7 +36,7 @@ public class Board extends BaseEntity{
             fetch = FetchType.LAZY,
             orphanRemoval = true)
     @Builder.Default
-//    @BatchSize(size = 20)
+    @BatchSize(size = 20)
     private Set<BoardImage> imageSet = new HashSet<>();
 
     public void addImage(String uuid, String fileName){
