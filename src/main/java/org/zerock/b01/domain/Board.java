@@ -3,13 +3,15 @@ package org.zerock.b01.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "imageSet")
 public class Board extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +26,9 @@ public class Board extends BaseEntity{
     @Column(length = 50, nullable = false)
     private String writer;
 
+    @OneToMany
+    @Builder.Default
+    private Set<BoardImage> imagesSet = new HashSet<>();
     public void change(String title, String content){
         this.title = title;
         this.content = content;
