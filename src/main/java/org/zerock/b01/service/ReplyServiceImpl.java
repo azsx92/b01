@@ -27,7 +27,7 @@ public class ReplyServiceImpl implements ReplyService{
     private final ReplyRepository replyRepository;
 
     private final ModelMapper modelMapper;
-
+ 
     @Override
     public Long register(ReplyDTO replyDTO) {
 
