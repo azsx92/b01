@@ -195,7 +195,7 @@ class BoardRepositoryTest {
     public void testReadWithImages() {
 
         //반드시 존재하는 bno로 확인
-        Optional<Board> result = boardRepository.findByIdWithImages(1L);
+        Optional<Board> result = boardRepository.findByIdWithImages(100L);
 
         Board board = result.orElseThrow();
 
