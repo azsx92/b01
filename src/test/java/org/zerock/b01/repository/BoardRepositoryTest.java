@@ -195,7 +195,7 @@ class BoardRepositoryTest {
     public void testReadWithImages() {
 
         //반드시 존재하는 bno로 확인
-        Optional<Board> result = boardRepository.findByIdWithImages(100L);
+        Optional<Board> result = boardRepository.findByIdWithImages(1L);
 
         Board board = result.orElseThrow();
 
@@ -211,7 +211,7 @@ class BoardRepositoryTest {
     @Test
     public void testModifyImages() {
 
-        Optional<Board> result = boardRepository.findByIdWithImages(102L);
+        Optional<Board> result = boardRepository.findByIdWithImages(1L);
 
         Board board = result.orElseThrow();
 
@@ -233,7 +233,7 @@ class BoardRepositoryTest {
     @Commit
     public void testRemoveAll() {
 
-        Long bno = 100L;
+        Long bno = 1L;
 
         replyRepository.deleteByBoard_Bno(bno);
 
