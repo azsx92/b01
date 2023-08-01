@@ -4,9 +4,13 @@ import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.zerock.b01.domain.Board;
 import org.zerock.b01.dto.BoardDTO;
 import org.zerock.b01.dto.PageRequestDTO;
 import org.zerock.b01.dto.PageResponseDTO;
+
+import java.util.Arrays;
+import java.util.UUID;
 
 @SpringBootTest
 @Log4j2
@@ -36,7 +40,7 @@ public class BoardServiceTests {
 
         //변경에 필요한 데이터만
         BoardDTO boardDTO = BoardDTO.builder()
-                .bno(101L)
+                .bno(1L)
                 .title("Updated....101")
                 .content("Updated content 101...")
                 .build();
@@ -61,6 +65,28 @@ public class BoardServiceTests {
 
     }
 
+    @Test
+    public void testRegisterWithImages() {
 
+        log.info(boardService.getClass().getName());
+
+        BoardDTO boardDTO = BoardDTO.builder()
+                .title("File...Sample Title...")
+                .content("Sample Content...")
+                .writer("user00")
+                .build();
+
+        boardDTO.setFileNames(
+                Arrays.asList(
+                        UUID.randomUUID() + "_aaa.jpg",
+                        UUID.randomUUID() + "_bbb.jpg",
+                        UUID.randomUUID() + "_bbb.jpg"
+                ));
+
+        Long bno = boardService.register(boardDTO);
+
+        log.info("bno: " + bno);
+
+    }
 
 }
