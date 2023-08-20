@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 @Log4j2
 @Service
-public class CustomUserDetailsService implements UserDetailsService {
+public class    CustomUserDetailsService implements UserDetailsService {
     private PasswordEncoder passwordEncoder;
 
     public CustomUserDetailsService() {
